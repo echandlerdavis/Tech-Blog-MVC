@@ -6,3 +6,6 @@ router.use('/users', userRoutes);
 router.use('/projects', blogRoutes);
 
 module.exports = router;
+
+
+//I have a feeling I'm going to need a thing for the comments? 
