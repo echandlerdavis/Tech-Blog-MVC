@@ -1,0 +1,31 @@
+<section class="columns">
+<div class="column">
+  <div class="box">
+    <h2 class="title">{{blog.title}}</h2>
+
+        <div class="control">
+          <p>{{blog.body}}</p>
+        </div>
+
+
+<section class="columns">
+<div class="column">
+  <form class="box">
+    <h2 class="title">Comment</h2>
+  
+    <div class="field">
+        <label class="label">Body</label>
+        <div class="control">
+        <input name="blog-id" type="hidden" value="{{blog.id}}"> 
+        <textarea class="textarea" type="text" id="comment-body"></textarea>
+      </div>
+      </div>
+  
+    <button type="submit" class="button is-primary" id="submit" data-id="{{blog.id}}">Edit Post</button>
+  </form>
+</div>
+</section>
+
+{{!-- comment section --}}
+
+<script src="/js/viewpost.js"></script>

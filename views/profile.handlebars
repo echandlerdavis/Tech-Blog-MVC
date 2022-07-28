@@ -1,0 +1,31 @@
+<div class="columns blog-list">
+  {{#each blog as |blog| }}
+    <div class="card column m-5" data-card-id="{{blog.id}}">
+        <header class="card-header" data-card-id="{{blog.id}}">
+          <p class="card-header-title" id="recipe-name" data-card-id="{{blog.id}}">
+            {{recipe.name}}
+          </p>
+        </header> 
+        <footer class="card-footer">
+          <a href="/api/update-post/{{blog.id}}" class="edit-btn card-footer-item" data-edit-id="{{blog.id}}">
+            Edit
+          </a>
+          <a class="card-footer-item delete-btn" data-id="{{blog.id}}">
+            Delete
+          </a>
+        </footer>
+      </div>
+    </div>
+  {{/each}}
+</div>
+
+    
+<footer>
+       <div class="content has-text-centered">
+         <a href="/add-post">
+         <button class="button is-primary is-light" id="add-blog">+ New Post</button>
+        </a>
+      </div>
+    </footer>
+
+<script src="/js/cardHandler.js"></script>

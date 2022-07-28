@@ -75,6 +75,30 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/add-post', withAuth, (req, res) =>{
+
+  res.render('newpost', {
+    logged_in: req.session.logged_in
+  })
+});
+
+router.get('/update-post/:id', withAuth, async(req, res)=> {
+
+const postId = req.params.id;
+try {
+  const blogData = await Blog.findByPk (postId, {})
+  blog = blogData.get({ plain: true });
+
+  res.render('updateblog', {
+    blog,
+    logged_in: req.session.logged_in
+  });
+} catch(err) {
+  res.status(500).json(err);
+}
+
+});
+
 module.exports = router;
 
 //TODO: Include a comment route in some way. 
