@@ -4,7 +4,7 @@
     <h2 class="title">{{blog.title}}</h2>
 
         <div class="control">
-          <p>{{blog.body}}</p>
+          <p>{{blog.blog_post}}</p>
         </div>
 
 
@@ -16,7 +16,7 @@
     <div class="field">
         <label class="label">Body</label>
         <div class="control">
-        <input name="blog-id" type="hidden" value="{{blog.id}}"> 
+        <input data-id="blog-id" type="hidden" value="{{blog.id}}"> 
         <textarea class="textarea" type="text" id="comment-body"></textarea>
       </div>
       </div>

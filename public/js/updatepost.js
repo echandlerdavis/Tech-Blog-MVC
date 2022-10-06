@@ -2,15 +2,14 @@ const blogHandler = async (event) => {
     event.preventDefault();
   
     const title = document.querySelector('#blog-title').value.trim();
-    const post = document.querySelector('#blog-post').value.trim();
+    const blog_post = document.querySelector('#blog-body').value.trim();
     const blogId = document.querySelector('#submit').getAttribute('data-id');
   
-    if (blogId && title && post) {
+    if (blogId && title && blog_post) {
       const response = await fetch(`/api/posts/${blogId}`, {
         method: 'PUT',
         body: JSON.stringify({ 
-          name: title, 
-          post }),
+          title, blog_post}),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -29,4 +28,3 @@ const blogHandler = async (event) => {
     .querySelector('#submit')
     .addEventListener('click', blogHandler);
 
-    //fix variables/queryselectors

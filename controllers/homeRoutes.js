@@ -23,21 +23,16 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/blog/:id', async (req, res) => {
+router.get('/posts/:id', async (req, res) => {
+
+  const blogId = req.params.id
   try {
-    const blogData = await Blog.findByPk(req.params.id, {
-      include: [ User,
-        {
-          model: Comment,
-          include: [ User ]
-        }
-      ],
-    });
+    const blogData = await Blog.findByPk(blogId, {});
 
     const blog = blogData.get({ plain: true });
 
-    res.render('blog', {
-      ...blog,
+    res.render('viewpost', {
+      blog,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -87,7 +82,7 @@ router.get('/update-post/:id', withAuth, async(req, res)=> {
 const postId = req.params.id;
 try {
   const blogData = await Blog.findByPk (postId, {})
-  blog = blogData.get({ plain: true });
+  let blog = blogData.get({ plain: true });
 
   res.render('updateblog', {
     blog,

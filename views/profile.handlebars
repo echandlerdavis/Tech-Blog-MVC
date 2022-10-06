@@ -1,11 +1,18 @@
 <div class="columns blog-list">
-  {{#each blog as |blog| }}
+  {{#each blogs as |blog| }}
     <div class="card column m-5" data-card-id="{{blog.id}}">
         <header class="card-header" data-card-id="{{blog.id}}">
           <p class="card-header-title" id="recipe-name" data-card-id="{{blog.id}}">
-            {{recipe.name}}
+            {{blog.title}}
           </p>
         </header> 
+        <div class="card-content">
+    <div class="content">
+      {{blog.blog_post}}
+      <br>
+      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+    </div>
+  </div>
         <footer class="card-footer">
           <a href="/api/update-post/{{blog.id}}" class="edit-btn card-footer-item" data-edit-id="{{blog.id}}">
             Edit
